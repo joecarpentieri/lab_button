@@ -27,3 +27,8 @@ toDoForm.addEventListener("submit", (event) => {
     });
 
 });
+
+showDateButton.addEventListener("click", () => {
+    const currentDate = new Date().toLocaleDateString();
+    alert(currentDate);
+})
