@@ -1,28 +1,29 @@
 const toDoForm = document.querySelector("#todo-form");
-const enterButton = document.querySelector("#enter");
-const textInput = document.querySelector("#text-input");
 const deleteButton = document.querySelector("#delete");
 const showDateButton = document.querySelector("#show-date");
 const toDoList = document.querySelector("#list");
 
+
+
 toDoForm.addEventListener("submit", (event) => {
+    const newToDo = document.querySelector("#new-todo");
+
     event.preventDefault();
     console.log("button clicked");
-    // get the input
-    const createdListItem = document.createElement("li");
-    createdListItem.innerText = event.target["new-todo"].value;
-    list.appendChild(createdListItem);
-})
+    
+    const newItem = document.createElement("li");
 
-// textInput.addEventListener("input", (event) => {
-//     console.log(event);
-// })
+    const deleteItemButton = document.createElement("button");
+    deleteItemButton.innerText = "Delete";
 
-// deleteButton.addEventListener("click", () => {
-//     console.log("deleted");
-// })
+    newItem.innerText = newToDo.value;
 
-toDoForm.addEventListener("submit", (event) => {
-    toDoForm.textInput = event.target.value;
-})
+    newItem.appendChild(deleteItemButton);
+    toDoList.appendChild(newItem);
 
+    deleteItemButton.addEventListener("click", () => {
+        toDoList.removeChild(newItem);
+
+    });
+
+});
